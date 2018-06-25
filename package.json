@@ -1,14 +1,18 @@
 {
-  "name": "new",
+  "name": "react-app",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
     "babel": "6.23.0",
+    "create-react-app": "1.5.2",
+    "node": "10.5.0",
+    "prettier": "1.13.5",
     "react": "16.3.2",
     "react-dom": "16.3.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "webpack": "4.12.1"
   },
   "devDependencies": {},
   "scripts": {
