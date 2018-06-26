@@ -19,7 +19,7 @@ class App extends Component {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     });
-
+    //Get the person itself and access the person index
     const person = { ...this.state.persons[personIndex] };
 
     person.name = event.target.value;
