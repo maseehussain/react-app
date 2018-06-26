@@ -6,14 +6,26 @@ import "./App.css";
 class App extends Component {
   state = {
     persons: [
-      { name: "Masee", age: 35 },
-      { name: "Maiwand", age: 22 },
-      { name: "Kadie", age: 32 }
-    ]
+      { id: "", name: "Masee", age: 35 },
+      { id: "", name: "Maiwand", age: 22 },
+      { id: "", name: "Kadie", age: 32 }
+    ],
+    otherState: "some other event",
+    showPersons: false
+  };
+
+  nameChangeHandler = event => {
+    this.setState({
+      persons: [
+        { name: "Hamid", age: 28 },
+        { name: event.target.value, age: 29 },
+        { name: "Menat", age: 19 }
+      ]
+    });
   };
 
   deletePersonHandler = personIndex => {
-    const persons = this.state.persons;
+    const persons = this.state.persons.slice();
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
   };
@@ -43,6 +55,7 @@ class App extends Component {
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
                 age={person.age}
+                key={person.id}
               />
             );
           })}
