@@ -19,9 +19,9 @@ class App extends Component {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     });
-    //Get the person itself and access the person index
+    //Get the person itself and access the person index, using the spread operator
     const person = { ...this.state.persons[personIndex] };
-
+    //Update the person name.
     person.name = event.target.value;
 
     const persons = [...this.state.persons];
