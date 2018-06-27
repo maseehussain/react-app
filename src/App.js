@@ -72,6 +72,8 @@ class App extends Component {
           })}
         </div>
       );
+      //We assign a new value to one of the style properties
+      style.backgroundColor = "red";
     }
 
     return (
