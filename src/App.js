@@ -98,6 +98,7 @@ class App extends Component {
     }
 
     return (
+      //styleroot needed from radium to execute the @media query
       <StyleRoot>
         <div className="App">
           <h1>React-App</h1>
