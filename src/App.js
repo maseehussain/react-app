@@ -52,7 +52,12 @@ class App extends Component {
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
-      cursor: "pointer"
+      cursor: "pointer",
+      //With radium I can create a pseudo selector
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black"
+      }
     };
 
     let persons = null;
@@ -75,6 +80,11 @@ class App extends Component {
       );
       //We assign a new value to one of the style properties
       style.backgroundColor = "red";
+      //We use a valid pseudo selector with radium
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black"
+      };
     }
 
     //Adjusting the class names dynamically and adding class names.
