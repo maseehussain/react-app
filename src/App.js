@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Person from "./Person/Person.js";
-import Radium, { StyleRoot } from "radium";
 
 import "./App.css";
 
@@ -52,12 +51,7 @@ class App extends Component {
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
-      cursor: "pointer",
-      //With radium I can create a pseudo selector
-      ":hover": {
-        backgroundColor: "lightgreen",
-        color: "black"
-      }
+      cursor: "pointer"
     };
 
     let persons = null;
@@ -80,11 +74,6 @@ class App extends Component {
       );
       //We assign a new value to one of the style properties
       style.backgroundColor = "red";
-      //We use a valid pseudo selector with radium
-      style[":hover"] = {
-        backgroundColor: "salmon",
-        color: "black"
-      };
     }
 
     //Adjusting the class names dynamically and adding class names.
@@ -98,19 +87,16 @@ class App extends Component {
     }
 
     return (
-      //styleroot needed from radium to execute the @media query
-      <StyleRoot>
-        <div className="App">
-          <h1>React-App</h1>
-          <p className={classes.join(" ")}>Wassssssss up!</p>
-          <button style={style} onClick={this.togglePersonsHandler}>
-            Toggle Persons
-          </button>
-          {persons}
-        </div>
-      </StyleRoot>
+      <div className="App">
+        <h1>React-App</h1>
+        <p className={classes.join(" ")}>Wassssssss up!</p>
+        <button style={style} onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </button>
+        {persons}
+      </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
