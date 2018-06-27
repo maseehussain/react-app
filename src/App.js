@@ -15,29 +15,25 @@ class App extends Component {
   };
 
   nameChangeHandler = (event, id) => {
-    //Update the state
+    //Update the state, findIndex takes a function as an input just like map and execute the function.
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
     });
-    //Get the person itself and access the person index, using the spread operator
+    //Get a copy of the person itself and access the person index, using the spread operator
     const person = { ...this.state.persons[personIndex] };
-    //Update the person name.
+    //this code does the same as the above const person = Object.assign({}, this.state.persons[personIndex]);
+    //Update the person.
     person.name = event.target.value;
-
+    //now update the name within the array
     const persons = [...this.state.persons];
     persons[personIndex] = person;
-
-    this.setState({
-      persons: [
-        { name: "Hamid", age: 28 },
-        { name: event.target.value, age: 29 },
-        { name: "Menat", age: 19 }
-      ]
-    });
+    //will update the person
+    this.setState({ persons: persons });
   };
 
   deletePersonHandler = personIndex => {
-    const persons = this.state.persons.slice();
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
   };
