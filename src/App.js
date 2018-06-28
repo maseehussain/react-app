@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import Person from "./Person/Person.js";
+import Radium, { StyleRoot } from "radium";
+import Person from "./Person/Person";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 import "./App.css";
 
@@ -7,8 +9,8 @@ class App extends Component {
   state = {
     persons: [
       { id: "123", name: "Masee", age: 35 },
-      { id: "456", name: "Maiwand", age: 22 },
-      { id: "789", name: "Kadie", age: 32 }
+      { id: "456", name: "Hamid", age: 45 },
+      { id: "789", name: "Menat", age: 19 }
     ],
     otherState: "some other event",
     showPersons: false
@@ -51,7 +53,12 @@ class App extends Component {
       font: "inherit",
       border: "1px solid blue",
       padding: "8px",
-      cursor: "pointer"
+      cursor: "pointer",
+      //With radium I can create a pseudo selector
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black"
+      }
     };
 
     let persons = null;
@@ -61,19 +68,25 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={event => this.nameChangeHandler(event, person.id)}
-              />
+              <ErrorBoundary key={person.id}>
+                <Person
+                  click={() => this.deletePersonHandler(index)}
+                  name={person.name}
+                  age={person.age}
+                  changed={event => this.nameChangeHandler(event, person.id)}
+                />
+              </ErrorBoundary>
             );
           })}
         </div>
       );
       //We assign a new value to one of the style properties
       style.backgroundColor = "red";
+      //We use a valid pseudo selector with radium
+      style[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black"
+      };
     }
 
     //Adjusting the class names dynamically and adding class names.
@@ -87,16 +100,19 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>React-App</h1>
-        <p className={classes.join(" ")}>Wassssssss up!</p>
-        <button style={style} onClick={this.togglePersonsHandler}>
-          Toggle Persons
-        </button>
-        {persons}
-      </div>
+      //styleroot needed from radium to execute the @media query
+      <StyleRoot>
+        <div className="App">
+          <h1>React-App</h1>
+          <p className={classes.join(" ")}>Wassssssss up!</p>
+          <button style={style} onClick={this.togglePersonsHandler}>
+            Toggle Persons
+          </button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
