@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Radium, { StyleRoot } from "radium";
-import Person from "../components/Persons/Person/Person";
+import Persons from "../components/Persons/Persons";
 
 import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
   state = {
     persons: [
       { id: "123", name: "Masee", age: 35 },
@@ -65,17 +65,11 @@ class App extends Component {
     if (this.state.showPersons) {
       persons = (
         <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                changed={event => this.nameChangeHandler(event, person.id)}
-                key={person.id}
-              />
-            );
-          })}
+          <Persons
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.deletePersonHandler}
+          />
         </div>
       );
       //We assign a new value to one of the style properties
