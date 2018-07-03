@@ -65,17 +65,19 @@ class App extends React.Component {
   render() {
     //inline style
     const style = {
-      backgroundColor: "green",
-      color: "white",
       font: "inherit",
-      border: "1px solid blue",
+      backgroundColor: "white",
+      color: "black",
+      border: "1px solid green",
       padding: "8px",
       cursor: "pointer",
       borderRadius: "5px",
+      boxShadow: "0 10px 15px green",
+      outline: "none",
       //With radium I can create a pseudo selector
       ":hover": {
         backgroundColor: "lightgreen",
-        color: "black"
+        color: "white"
       }
     };
 
@@ -93,11 +95,13 @@ class App extends React.Component {
         </div>
       );
       //We assign a new value to one of the style properties
-      style.backgroundColor = "red";
+      style.backgroundColor = "white";
+      style.boxShadow = "0 10px 20px red";
+      style.border = "1px solid red";
       //We use a valid pseudo selector with radium
       style[":hover"] = {
         backgroundColor: "salmon",
-        color: "black"
+        color: "white"
       };
     }
 

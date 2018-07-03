@@ -1,12 +1,13 @@
 import React from "react";
+import Aux from "../../hoc/Aux";
 
 const cockpit = props => {
   return (
     //styleroot needed from radium to execute the @media query
-    <div>
+    <Aux>
       <h1>React-App</h1>
       <p>Wassssssss up!</p>
-    </div>
+    </Aux>
   );
 };
 
