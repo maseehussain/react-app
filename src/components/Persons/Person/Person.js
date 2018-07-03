@@ -19,7 +19,7 @@ class Person extends React.Component {
           Name:
           <input
             type="name"
-            onChange={this.props.changed}
+            onChange={this.props.nameChange}
             value={this.props.name}
           />
         </p>
@@ -27,7 +27,7 @@ class Person extends React.Component {
           Age:
           <input
             type="age"
-            onChange={this.props.change}
+            onChange={this.props.ageChange}
             value={this.props.age}
           />
         </p>
