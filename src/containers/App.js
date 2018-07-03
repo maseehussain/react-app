@@ -1,6 +1,7 @@
 import React from "react";
 import Radium, { StyleRoot } from "radium";
 import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 import "./App.css";
 
@@ -104,8 +105,7 @@ class App extends React.Component {
       //styleroot needed from radium to execute the @media query
       <StyleRoot>
         <div className="App">
-          <h1>React-App</h1>
-          <p>Wassssssss up!</p>
+          <Cockpit />
           <button style={style} onClick={this.togglePersonsHandler}>
             Show Persons
           </button>

@@ -17,7 +17,7 @@ class Person extends React.Component {
 
     return (
       <div className="Person" style={style}>
-        <p onClick={this.props.click}>
+        <p>
           I am <strong>{this.props.name}</strong> and I am{" "}
           <strong>{this.props.age} </strong>
           years old!
