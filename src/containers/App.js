@@ -70,6 +70,7 @@ class App extends React.Component {
       border: "1px solid blue",
       padding: "8px",
       cursor: "pointer",
+      borderRadius: "5px",
       //With radium I can create a pseudo selector
       ":hover": {
         backgroundColor: "lightgreen",
