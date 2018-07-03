@@ -9,23 +9,33 @@ class Person extends React.Component {
         width: "450px"
       }
     };
+
+    const inputStyle = {
+      borderRadius: "5px",
+      padding: "10px"
+    };
+
     return (
       <div className="Person" style={style}>
         <p onClick={this.props.click}>
-          I am {this.props.name} and I am {this.props.age} years old!
+          I am <strong>{this.props.name}</strong> and I am{" "}
+          <strong>{this.props.age} </strong>
+          years old!
         </p>
         <p>{this.props.children}</p>
         <p>
-          Name:
+          Name<br />
           <input
+            style={inputStyle}
             type="name"
             onChange={this.props.nameChange}
             value={this.props.name}
           />
         </p>
         <p>
-          Age:
+          Age<br />
           <input
+            style={inputStyle}
             type="age"
             onChange={this.props.ageChange}
             value={this.props.age}

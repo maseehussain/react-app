@@ -70,6 +70,7 @@ class App extends React.Component {
       border: "1px solid blue",
       padding: "8px",
       cursor: "pointer",
+      borderRadius: "5px",
       //With radium I can create a pseudo selector
       ":hover": {
         backgroundColor: "lightgreen",
@@ -99,24 +100,14 @@ class App extends React.Component {
       };
     }
 
-    //Adjusting the class names dynamically and adding class names.
-
-    let classes = [];
-    if (this.state.persons.length <= 2) {
-      classes.push("red");
-    }
-    if (this.state.persons.length <= 1) {
-      classes.push("bold");
-    }
-
     return (
       //styleroot needed from radium to execute the @media query
       <StyleRoot>
         <div className="App">
           <h1>React-App</h1>
-          <p className={classes.join(" ")}>Wassssssss up!</p>
+          <p>Wassssssss up!</p>
           <button style={style} onClick={this.togglePersonsHandler}>
-            Toggle Persons
+            Show Persons
           </button>
           {persons}
         </div>
