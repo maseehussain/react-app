@@ -44,7 +44,7 @@ class App extends React.Component {
     //this code does the same as the above const person = Object.assign({}, this.state.persons[personIndex]);
     //Update the person.
     person.age = event.target.value;
-    //now update the name within the array
+    //now update the age within the array
     const persons = [...this.state.persons];
     persons[personIndex] = person;
     //will update the person
