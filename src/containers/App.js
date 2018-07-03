@@ -32,6 +32,23 @@ class App extends React.Component {
     this.setState({ persons: persons });
   };
 
+  ageChangeHandler = (event, id) => {
+    //Update the state, findIndex takes a function as an input just like map and execute the function.
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+    //Get a copy of the person itself and access the person index, using the spread operator
+    const person = { ...this.state.persons[personIndex] };
+    //this code does the same as the above const person = Object.assign({}, this.state.persons[personIndex]);
+    //Update the person.
+    person.age = event.target.value;
+    //now update the name within the array
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+    //will update the person
+    this.setState({ persons: persons });
+  };
+
   deletePersonHandler = personIndex => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
@@ -69,6 +86,7 @@ class App extends React.Component {
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.nameChangeHandler}
+            change={this.ageChangeHandler}
           />
         </div>
       );

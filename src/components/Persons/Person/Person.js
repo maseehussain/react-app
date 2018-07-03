@@ -15,11 +15,22 @@ class Person extends React.Component {
           I am {this.props.name} and I am {this.props.age} years old!
         </p>
         <p>{this.props.children}</p>
-        <input
-          type="text"
-          onChange={this.props.changed}
-          value={this.props.name}
-        />
+        <p>
+          Name:
+          <input
+            type="name"
+            onChange={this.props.changed}
+            value={this.props.name}
+          />
+        </p>
+        <p>
+          Age:
+          <input
+            type="age"
+            onChange={this.props.change}
+            value={this.props.age}
+          />
+        </p>
       </div>
     );
   }
