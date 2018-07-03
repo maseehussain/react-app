@@ -68,7 +68,7 @@ class App extends React.Component {
           <Persons
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.deletePersonHandler}
+            changed={this.nameChangeHandler}
           />
         </div>
       );
