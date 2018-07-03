@@ -19,8 +19,7 @@ class Person extends React.Component {
       <div className="Person" style={style}>
         <p>
           I am <strong>{this.props.name}</strong> and I am{" "}
-          <strong>{this.props.age}</strong>
-          years old!
+          <strong>{this.props.age}</strong> years old!
         </p>
         <p>{this.props.children}</p>
         <p>

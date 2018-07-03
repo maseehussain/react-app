@@ -13,7 +13,8 @@ class App extends React.Component {
       { id: "789", name: "Menat", age: 19 }
     ],
     otherState: "some other event",
-    showPersons: false
+    showPersons: false,
+    toggleCLicked: 0
   };
 
   nameChangeHandler = (event, id) => {
@@ -59,7 +60,12 @@ class App extends React.Component {
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
+    this.setState((prevState, props) => {
+      return {
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+      };
+    });
   };
 
   render() {
