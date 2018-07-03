@@ -31,6 +31,7 @@ class Person extends React.Component {
             value={this.props.age}
           />
         </p>
+        <button onClick={this.props.deletePerson}>Delete</button>
       </div>
     );
   }

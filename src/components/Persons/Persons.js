@@ -12,6 +12,7 @@ class Persons extends React.Component {
           key={person.id}
           nameChange={event => this.props.nameChange(event, person.id)}
           ageChange={event => this.props.ageChange(event, person.id)}
+          deletePerson={event => this.props.deletePerson(event, person.id)}
         />
       );
     });
