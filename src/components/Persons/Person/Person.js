@@ -1,6 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import "./Person.css";
+import PropTypes from "prop-types";
 
 class Person extends React.Component {
   render() {
@@ -45,5 +46,10 @@ class Person extends React.Component {
     );
   }
 }
+//proptypes do not work in functional components
+Person.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number
+};
 
 export default Radium(Person);
