@@ -18,6 +18,7 @@ class Person extends React.Component {
 
     return (
       <div className="Person" style={style}>
+        {this.props.authenticated ? <p>I am authenticated!</p> : null}
         <p>
           I am <strong>{this.props.name}</strong> and I am{" "}
           <strong>{this.props.age}</strong> years old!
@@ -26,6 +27,9 @@ class Person extends React.Component {
         <p>
           Name<br />
           <input
+            ref={inp => {
+              this.inputElement = inp;
+            }}
             style={inputStyle}
             type="name"
             onChange={this.props.nameChange}
@@ -35,6 +39,9 @@ class Person extends React.Component {
         <p>
           Age<br />
           <input
+            ref={inp => {
+              this.inputElement = inp;
+            }}
             style={inputStyle}
             type="age"
             onChange={this.props.ageChange}

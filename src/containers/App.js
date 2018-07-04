@@ -5,6 +5,8 @@ import Cockpit from "../components/Cockpit/Cockpit";
 
 import "./App.css";
 
+const AuthContext = React.createContext(false);
+
 class App extends React.Component {
   state = {
     persons: [
@@ -14,7 +16,8 @@ class App extends React.Component {
     ],
     otherState: "some other event",
     showPersons: false,
-    toggleCLicked: 0
+    toggleCLicked: 0,
+    authenticated: false
   };
 
   nameChangeHandler = (event, id) => {
@@ -68,6 +71,10 @@ class App extends React.Component {
     });
   };
 
+  loginHandler = () => {
+    this.setState({ authenticated: true });
+  };
+
   render() {
     //inline style
     const style = {
@@ -97,6 +104,7 @@ class App extends React.Component {
             deletePerson={this.deletePersonHandler}
             nameChange={this.nameChangeHandler}
             ageChange={this.ageChangeHandler}
+            isAuthenticated={this.state.authenticated}
           />
         </div>
       );
@@ -115,11 +123,11 @@ class App extends React.Component {
       //styleroot needed from radium to execute the @media query
       <StyleRoot>
         <div className="App">
-          <Cockpit />
+          <Cockpit login={this.loginHandler} />
           <button style={style} onClick={this.togglePersonsHandler}>
             Show Persons
           </button>
-          {persons}
+          <AuthContext.Provider>{persons}</AuthContext.Provider>
         </div>
       </StyleRoot>
     );
