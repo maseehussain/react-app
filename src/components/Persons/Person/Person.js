@@ -2,6 +2,7 @@ import React from "react";
 import Radium from "radium";
 import "./Person.css";
 import PropTypes from "prop-types";
+import { AuthContext } from "../../../containers/App";
 
 class Person extends React.Component {
   render() {
@@ -18,7 +19,9 @@ class Person extends React.Component {
 
     return (
       <div className="Person" style={style}>
-        {this.props.authenticated ? <p>I am authenticated!</p> : null}
+        <AuthContext.Consumer>
+          {auth => (auth ? <p>I am authenticated!</p> : null)}
+        </AuthContext.Consumer>
         <p>
           I am <strong>{this.props.name}</strong> and I am{" "}
           <strong>{this.props.age}</strong> years old!
